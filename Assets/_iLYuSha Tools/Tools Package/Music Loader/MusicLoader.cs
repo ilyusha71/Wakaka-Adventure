@@ -36,7 +36,9 @@ public class MusicLoader : MonoBehaviour
         bgAudio = GetComponent<AudioSource>();
         textTrackPlaying = textPlaying;
         defaultTrack = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "Track");
+#if UNITY_2017_2
         StartCoroutine(MusicLoading());
+#endif
     }
     void Update()
     {
