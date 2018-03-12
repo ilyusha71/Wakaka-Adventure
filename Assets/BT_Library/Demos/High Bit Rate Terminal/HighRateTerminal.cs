@@ -25,8 +25,8 @@ public class HighRateTerminal : MonoBehaviour
 	}
     public void UseBluetooth()
     {
+        Debug.LogWarning("Open Bluetooth");
         BluetoothAdapter.askEnableBluetooth();//Ask user to enable Bluetooth
-
     }
 
     void HandleOnDeviceOff (BluetoothDevice dev)
@@ -96,8 +96,6 @@ public class HighRateTerminal : MonoBehaviour
 		//Switch to Terminal View
 		InfoCanvas.SetActive (false);
         //DataCanvas.SetActive (true);
-        HexGridManager.isEscapeVer = true;
-
 
         while (device.IsReading) {
 			

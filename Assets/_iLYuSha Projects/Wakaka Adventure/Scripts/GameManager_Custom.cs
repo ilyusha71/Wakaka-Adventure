@@ -51,8 +51,4 @@ public partial class GameManager : MonoBehaviour
             }
         }
     }
-    public void CustomMode()
-    {
-        gameMode = GameMode.Custom;
-    }
 }

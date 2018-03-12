@@ -222,7 +222,7 @@ public class ThemeManager : MonoBehaviour
             "\n而我們的目標不只是用浮標進行" + YellowText("標記") + "\n還要" + theme[(int)Theme.Inca-1].doTool +
             "下面埋藏的" + OrangeText(theme[(int)Theme.Inca-1].nameTreasure) + "\n協助<color=#c0b2ff>大冒險家哇咔咔</color>完成任務吧！";
 
-        if (HexGridManager.isEscapeVer)
+        if (GameManager.instance.gameMode == GameMode.Escape)
         {
             theme[(int)Theme.Inca-1].title = "印加秘境";
             theme[(int)Theme.Inca-1].intro =
@@ -290,7 +290,7 @@ public class ThemeManager : MonoBehaviour
         {
             iconTab[i].sprite = spriteInstruction[i];
         }
-        if (HexGridManager.isEscapeVer)
+        if (GameManager.instance.gameMode == GameMode.Escape)
         {
             iconTab[0].sprite = spriteInstruction[0];
             iconTab[1].sprite = spriteInstruction[1];
@@ -320,12 +320,10 @@ public class ThemeManager : MonoBehaviour
         textIndication[5].text = theme[index].nameSpecial;
 
         // 密室逃脫版本不會使用Tool與Flag
-        if (HexGridManager.isEscapeVer)
+        if (GameManager.instance.gameMode == GameMode.Escape)
         {
             iconIndication[1].gameObject.SetActive(false);
-            iconIndication[2].gameObject.SetActive(false);
             textIndication[1].gameObject.SetActive(false);
-            textIndication[2].gameObject.SetActive(false);
         }
 
         // Page 1: Introduction
@@ -374,7 +372,7 @@ public class ThemeManager : MonoBehaviour
         textTitleTrap.text = theme[index].nameTrap;
         textContentTrap.text = YellowText(theme[index].nameExplore) + "與" + YellowText(theme[index].nameTool) + "誤觸" + LimeText(theme[index].nameTrap) +
             "將無法返回\n同時會使周圍的探索功虧一簣\n建議先將可疑的" + LimeText(theme[index].nameTrap) + "使用" + YellowText(theme[index].nameFlag) + "標記";
-        if (HexGridManager.isEscapeVer)
+        if (GameManager.instance.gameMode == GameMode.Escape)
             textContentTrap.text = YellowText(theme[index].nameExplore) + "誤觸" + LimeText(theme[index].nameTrap) +
                 "將無法返回\n同時會使周圍的探索功虧一簣";
         textFooterTrap.text = "每個區域的" + LimeText(theme[index].nameTrap) + "都會對周圍增加" + CyanText("1級") + "的特徵";
@@ -398,7 +396,7 @@ public class ThemeManager : MonoBehaviour
         iconTitleTreasure.sprite = theme[index].spriteTreasure;
         textTitleTreasure.text = theme[index].nameTreasure;
         textContentTreasure.text = "藏於部分" + LimeText(theme[index].nameTrap) + "之下\n只有" + YellowText(theme[index].nameTool) + "能進行" + theme[index].doTool;
-        if (HexGridManager.isEscapeVer)
+        if (GameManager.instance.gameMode == GameMode.Escape)
             textContentTreasure.text = "藏於部分" + LimeText(theme[index].nameTrap) + "之下";
         textFooterTreasure.text = "每個區域的" + OrangeText(theme[index].nameTreasure) + "都會對周圍增加" + CyanText("2級") + "的特徵";
         for (int i = 0; i < iconExampleTreasure1.Length; i++)

@@ -15,7 +15,6 @@ public class HexGridManager : MonoBehaviour
 {
     [Header("Testing")]
     public bool showAll;
-    public static bool isEscapeVer;
     [Header("主題與難度")]
     public int indexTheme;
     public Difficulty difficulty;
@@ -38,7 +37,7 @@ public class HexGridManager : MonoBehaviour
     private int trap = 7; // 陷阱數
     private int target = 3; // 目標數
     private int opportunity = 10; // 容錯次數
-    public float rpsMap = 0.037f; // 地圖旋轉係數
+    public float rpsMap = 0.0237f; // 地圖旋轉係數
     public int firstIndex;
     [Header("音效")]
     public AudioSource audioPlayer;
@@ -80,6 +79,8 @@ public class HexGridManager : MonoBehaviour
         bgm = transform.root.GetComponent<AudioSource>();
         gridGruop = this.transform;
         CreateHexagonalGrids();
+        ChooseTheme(0);
+        ChooseDifficulty(1);
     }
     // 建置六角網格
     void CreateHexagonalGrids()
@@ -123,7 +124,9 @@ public class HexGridManager : MonoBehaviour
                 tipsButton[0].SetActive(true);
                 tipsButton[1].SetActive(true);
                 tipsButton[2].SetActive(true);
+                toggleDoctor.gameObject.SetActive(true);
                 toggleDoctor.isOn = true;
+                adventureMode = AdventureMode.Doctor;
                 break;
             case Difficulty.Newbie: layer = 4; trap = 5; target = 2; opportunity = 2; gridGruop.localScale = Vector3.one; break;
             case Difficulty.Trainee: layer = 5; trap = 8; target = 4; opportunity = 3; gridGruop.localScale = Vector3.one; break;
@@ -190,7 +193,8 @@ public class HexGridManager : MonoBehaviour
 
         if (rotateMap)
             gridGruop.localRotation *= Quaternion.Euler(0, 0, rpsMap * 360 * Time.deltaTime);
-        restartArrow.localRotation *= Quaternion.Euler(0, 0, 0.7f * 360 * Time.deltaTime);
+        if(restartArrow.gameObject.activeSelf)
+            restartArrow.localRotation *= Quaternion.Euler(0, 0, 0.7f * 360 * Time.deltaTime);
 
         if (clock && !instruction.activeSelf)
         {
@@ -204,6 +208,7 @@ public class HexGridManager : MonoBehaviour
     // 網格佈署
     void OnFirstTry(object sender, FirstTryEventArgs e)
     {
+        adventureWarning.DOKill();
         adventureWarning.DOFade(0, 0.73f);
         timer = 0;
         clock = true;
@@ -490,7 +495,7 @@ public class HexGridManager : MonoBehaviour
             result.SetActive(true);
             resultSuccess.isOn = true;
             Ending();
-            if (isEscapeVer)
+            if (difficulty == Difficulty.Doctor)
             {
                 FindObjectOfType<HighRateTerminal>().Pass();
                 FindObjectOfType<HighRateTerminal>().Pass();
@@ -503,7 +508,10 @@ public class HexGridManager : MonoBehaviour
     {
         btnRestart.sprite = iconRestart[1];
         restartArrow.gameObject.SetActive(true);
-        toggleExolore.isOn = true;
+        if (difficulty == Difficulty.Doctor)
+            toggleDoctor.isOn = true;
+        else
+            toggleExolore.isOn = true;
         clock = false;
         checkSuspected.isOn = false;
         activePossible = false;
@@ -519,17 +527,15 @@ public class HexGridManager : MonoBehaviour
     // Adventure Mode 冒險模式
     public void SwitchAdventureMode(int mode)
     {
-        if (difficulty == Difficulty.Doctor)
-        {
-            adventureMode = AdventureMode.Doctor;
-            return;
-        }
         if (firstTry)
             adventureMode = (AdventureMode)mode;
         else
         {
             adventureWarning.DOFade(1,1.37f);
-            toggleExolore.isOn = true;
+            if (difficulty == Difficulty.Doctor)
+                toggleDoctor.isOn = true;
+            else
+                toggleExolore.isOn = true;
         }
         nightVision.enabled = toggleTool.isOn ? true : false;
     }
@@ -559,7 +565,10 @@ public class HexGridManager : MonoBehaviour
         {
             HexagonMesh.grids[i].Reset();
         }
-        toggleExolore.isOn = true;
+        if (difficulty == Difficulty.Doctor)
+            toggleDoctor.isOn = true;
+        else
+            toggleExolore.isOn = true;
         firstTry = false;
         bgm.clip = playBGM[Random.Range(0, playBGM.Length)];
         bgm.Play();

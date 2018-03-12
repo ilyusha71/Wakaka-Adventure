@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public partial class GameManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public partial class GameManager : MonoBehaviour
     public GameMode gameMode;
     [Header("UI")]
     public GameObject canvasQuit;
+    [Header("機關城守衛暗語")]
+    public GameObject panelOrder;
+    public GameObject panelGuard;
+    public InputField secret;
 
     private void Awake()
     {
@@ -19,6 +24,16 @@ public partial class GameManager : MonoBehaviour
 
      void Update()
     {
+        if (panelOrder.activeSelf)
+        {
+            if (secret.text == "oxoxoxo" || secret.text == "OXOXOXO")
+            {
+                FindObjectOfType<HighRateTerminal>().UseBluetooth();
+                panelOrder.SetActive(false);
+                panelGuard.SetActive(true);
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
             AskingQuit();
 
@@ -53,7 +68,10 @@ public partial class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-
+    public void SetGameMode(int indexGameMode)
+    {
+        gameMode = (GameMode)indexGameMode;
+    }
 }
 
 public enum GameMode

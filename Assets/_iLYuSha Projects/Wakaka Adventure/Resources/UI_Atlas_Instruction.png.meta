@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0c0977f0d10f68c46815b3f1350840ed
-timeCreated: 1520758980
+timeCreated: 1520838170
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -43,6 +43,7 @@ TextureImporter:
     21300072: UI_Atlas_Instruction_36
     21300074: UI_Atlas_Instruction_37
     21300076: UI_Atlas_Instruction_38
+    21300078: UI_Atlas_Instruction_39
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -662,6 +663,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UI_Atlas_Instruction_39
+      rect:
+        serializedVersion: 2
+        x: 896
         y: 384
         width: 128
         height: 128

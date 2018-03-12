@@ -13,6 +13,7 @@ public class MobileSimulator : MonoBehaviour
     public Sprite[] spriteCitrine;
     public bool[] hasVary;
     [Header("來電")]
+    public GameObject phoneCall;
     public GameObject call;
     public GameObject talking;
     public AudioSource audioBell;
@@ -25,9 +26,10 @@ public class MobileSimulator : MonoBehaviour
     private float timerVibration;
     private float timerMobile;
     [Header("接通")]
-    public Text nameWakaka;
-    public Text callTimer;
+    public Text textCallerName;
+    public Text textCallTimer;
     private float callStart;
+    public float callTime;
     private int rank;
 
     private void Awake()
@@ -47,6 +49,7 @@ public class MobileSimulator : MonoBehaviour
         {
             callMobile = true;
             ready.SetActive(false);
+            phoneCall.SetActive(true);
             timerVibration = Time.time + 1.0f;
             timerMobile = Time.time + 90.0f;
         }
@@ -74,10 +77,11 @@ public class MobileSimulator : MonoBehaviour
 
             if (answerTheCall)
             {
-                callTimer.text = "00 : " + string.Format("{0:00}", (int)(45+ callStart-Time.time));
-                if (Time.time - callStart > 45)
+                callTime = (int)(Time.time - callStart);
+                textCallTimer.text = "00 : " + string.Format("{0:00}", callTime);
+                if (callTime > 15)
                 {
-                    FindObjectOfType<HexGridManager>().ChooseDifficulty(1);
+                    FindObjectOfType<HexGridManager>().Restart();
                     gameObject.SetActive(false);
                 }
             }
@@ -95,8 +99,14 @@ public class MobileSimulator : MonoBehaviour
             call.SetActive(false);
             talking.SetActive(true);
             callStart = Time.time;
-            nameWakaka.color = Color.green;
+            textCallerName.color = Color.green;
         }
+    }
+
+    public void HangUp()
+    {
+        FindObjectOfType<HexGridManager>().Restart();
+        gameObject.SetActive(false);
     }
 
     //public void Test(int score)
