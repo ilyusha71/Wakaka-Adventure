@@ -25,7 +25,6 @@ public class HighRateTerminal : MonoBehaviour
 	}
     public void UseBluetooth()
     {
-        Debug.LogWarning("Open Bluetooth");
         BluetoothAdapter.askEnableBluetooth();//Ask user to enable Bluetooth
     }
 

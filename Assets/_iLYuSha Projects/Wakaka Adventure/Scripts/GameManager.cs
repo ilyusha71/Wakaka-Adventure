@@ -60,6 +60,10 @@ public partial class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Unlock Diffculty", 7);
     }
 
+    public void VersionUpdate()
+    {
+        Application.OpenURL("https://drive.google.com/file/d/1QCqkUQb049LlGaGFXxqYTKSqqgNiL390/");
+    }
     public void AskingQuit()
     {
         canvasQuit.SetActive(true);

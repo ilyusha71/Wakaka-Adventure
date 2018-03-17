@@ -42,6 +42,7 @@ public class HexGridManager : MonoBehaviour
     [Header("音效")]
     public AudioSource audioPlayer;
     public AudioClip[] clips;
+    public AudioClip audioMission;
     [Header("即時資訊")]
     public Text textLevel;
     public Text textDifficultyEng;
@@ -500,6 +501,9 @@ public class HexGridManager : MonoBehaviour
                 FindObjectOfType<HighRateTerminal>().Pass();
                 FindObjectOfType<HighRateTerminal>().Pass();
                 FindObjectOfType<HighRateTerminal>().Pass();
+                bgm.loop = false;
+                bgm.clip = audioMission;
+                bgm.Play();
                 btnRestart.gameObject.SetActive(false);
             }               
         }
