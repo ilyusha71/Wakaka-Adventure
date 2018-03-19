@@ -26,7 +26,7 @@ public partial class GameManager : MonoBehaviour
     {
         if (panelOrder.activeSelf)
         {
-            if (secret.text == "oxoxoxo" || secret.text == "OXOXOXO")
+            if (secret.text == "epic" || secret.text == "EPIC")
             {
                 FindObjectOfType<HighRateTerminal>().UseBluetooth();
                 panelOrder.SetActive(false);

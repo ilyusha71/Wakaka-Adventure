@@ -79,7 +79,7 @@ public class MobileSimulator : MonoBehaviour
             {
                 callTime = (int)(Time.time - callStart);
                 textCallTimer.text = "00 : " + string.Format("{0:00}", callTime);
-                if (callTime > 15)
+                if (callTime > 11)
                 {
                     FindObjectOfType<HexGridManager>().Restart();
                     gameObject.SetActive(false);
