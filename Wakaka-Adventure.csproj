@@ -244,6 +244,7 @@
     <Compile Include="Assets\_iLYuSha Projects\Wakaka Adventure\Scripts\HexGrid.cs" />
     <Compile Include="Assets\_iLYuSha Projects\Wakaka Adventure\Scripts\HexGridManager.cs" />
     <Compile Include="Assets\_iLYuSha Projects\Wakaka Adventure\Scripts\MobileSimulator.cs" />
+    <Compile Include="Assets\_iLYuSha Projects\Wakaka Adventure\Scripts\Singleton.cs" />
     <Compile Include="Assets\_iLYuSha Projects\Wakaka Adventure\Scripts\ThemeManager.cs" />
     <Compile Include="Assets\_iLYuSha Tools\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\_iLYuSha Tools\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs" />
