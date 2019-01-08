@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wakaka-Adventure", "Wakaka-Adventure.csproj", "{5DFD4FC4-CC65-A8E7-D306-B1F1EA1F7312}"
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{1608EC36-4200-E04F-A9FB-421950F1AA63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wakaka-Adventure.Editor", "Wakaka-Adventure.Editor.csproj", "{B9EDD0B3-A7B7-CC6E-F291-A8BBF1D256D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{3F17F946-9433-8CB4-7126-4CD3FFB1EF31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5DFD4FC4-CC65-A8E7-D306-B1F1EA1F7312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DFD4FC4-CC65-A8E7-D306-B1F1EA1F7312}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DFD4FC4-CC65-A8E7-D306-B1F1EA1F7312}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DFD4FC4-CC65-A8E7-D306-B1F1EA1F7312}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9EDD0B3-A7B7-CC6E-F291-A8BBF1D256D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9EDD0B3-A7B7-CC6E-F291-A8BBF1D256D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9EDD0B3-A7B7-CC6E-F291-A8BBF1D256D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9EDD0B3-A7B7-CC6E-F291-A8BBF1D256D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1608EC36-4200-E04F-A9FB-421950F1AA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1608EC36-4200-E04F-A9FB-421950F1AA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1608EC36-4200-E04F-A9FB-421950F1AA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1608EC36-4200-E04F-A9FB-421950F1AA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F17F946-9433-8CB4-7126-4CD3FFB1EF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F17F946-9433-8CB4-7126-4CD3FFB1EF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F17F946-9433-8CB4-7126-4CD3FFB1EF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F17F946-9433-8CB4-7126-4CD3FFB1EF31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
